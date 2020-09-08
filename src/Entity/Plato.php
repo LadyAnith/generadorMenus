@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\PlatoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass=PlatoRepository::class)
@@ -27,21 +29,23 @@ class Plato
      */
     private $calorias;
 
+   
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="TipoPlato")
+     * @ORM\JoinColumn(name="tipo", referencedColumnName="id")
      */
     private $tipo;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idTipoPlato;
-
      /**
       * @var Collection
-     * @ManyToMany(targetEntity="Alergenos")
+     * @ORM\ManyToMany(targetEntity="Alergenos")
      */
     private $listaAlergenos;
+
+    public function __construct()
+    {
+        $this->listaAlergenos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -72,26 +76,41 @@ class Plato
         return $this;
     }
 
-    public function getTipo(): ?int
+    public function getTipo(): ?TipoPlato
     {
         return $this->tipo;
     }
 
-    public function setTipo(int $tipo): self
+    public function setTipo(TipoPlato $tipo): self
     {
         $this->tipo = $tipo;
 
         return $this;
     }
 
-    public function getIdTipoPlato(): ?int
+
+    //Métodos Especiales para no eliminar todos los registros que estén relacionados
+
+    public function addListaAlergenos(Alergenos $listaAlergenos): self
+   {
+       $this->listaAlergenos[] = $listaAlergenos;
+       return $this;
+   }
+ 
+   public function removeAlergenos(Alergenos $listaAlergenos): bool
+   {
+       return $this->listaAlergenos->removeElement($listaAlergenos);
+   }
+ 
+    //-----------------------------------------------------------------------
+    public function getListaAlergenos(): Collection
     {
-        return $this->idTipoPlato;
+        return $this->listaAlergenos;
     }
 
-    public function setIdTipoPlato(int $idTipoPlato): self
+    public function setListaAlergenos(Collection $listaAlergenos): self
     {
-        $this->idTipoPlato = $idTipoPlato;
+        $this->listaAlergenos = $listaAlergenos;
 
         return $this;
     }
