@@ -1,4 +1,4 @@
-::Ahora con que pongas en la consola initBBDD.bat te va a hacer estos pasos
+::Ahora con que pongas en la consola initBBDD.bat
 
 ::Esto crea la base de datos
 php bin/console doctrine:database:create
