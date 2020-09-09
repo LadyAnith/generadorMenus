@@ -1,20 +1,85 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PlatosController!{% endblock %}
+{% block jumbo %}
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Generador de Menús</h1>
+                <p class="lead">Listado de Platos</p>
+            </div>
+        </div>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        <div class="container">
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#altaPlato"><i class="fas fa-calendar-plus"></i> Nuevo Plato</button>
+            <table class="table text-right">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Calorías</th>
+                        <th scope="col">Tipo de Plato</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-outline-success"><a href="#"><i class="fas fa-edit"></i></a></button>
+                            <button type="button" class="btn btn-outline-danger"><a href="#"><i class="fas fa-trash-alt"></i></a></button>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <!--------------------------MODAL ALTA PLATO-------------------------------->
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/generadorMenus/src/Controller/PlatosController.php'|file_link(0) }}">src/Controller/PlatosController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/generadorMenus/templates/platos/index.html.twig'|file_link(0) }}">templates/platos/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <div class="modal" tabindex="-1" id="altaPlato">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alta Plato Nuevo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="altaPlato" method="post">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="calorias">Calorías:</label>
+                                    <input type="number" class="form-control" id="calorias" name="calorias" step="0.01">
+                                </div>
+                                <div class="form-group">
+    
+                                        <select class="nice-select" name="tipoPlatos" >
+                                            <option value="1">Desayuno</option>
+                                            <option value="2">Comida</option>
+                                            <option value="3">Cena</option>
+                                            <option value="4">Postre</option>
+                                        </select>
+                                </div>
+                               
+                                <br/>
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                                <input type="hidden" name="pagina_actual">
+                                <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 {% endblock %}
