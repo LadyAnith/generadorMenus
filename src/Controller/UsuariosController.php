@@ -67,5 +67,57 @@ class UsuariosController extends AbstractController
 
     }
 
+     /**
+     * @Route("/editarUsuario/{id}", name="editarUsuario", methods={"GET"})
+     */
+
+    public function editarUsuario($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $usuarioRepo = $this->getDoctrine()->getRepository(Usuario::class);
+        
+        $usuario =  $usuarioRepo->find($id);
+
+        if (!$usuario) {
+            throw $this->createNotFoundException(
+                'No existe usuario con id: '.$id
+            );
+        }
+
+        $usuarios = $usuarioRepo->findAll();
+        return $this->render('usuarios/index.html.twig', [
+            'controller_name' => 'UsuariosController',
+            //Aquí indico el nombre de la variable donde guardo todo el listado, y le doy un name
+            'usuarios'=>$usuarios,
+            //Este es el usuario que voy a editar
+            'usuario'=>$usuario,
+            'actualizado'=> true,
+        ]);
+      
+    }
+
+    /**
+     * @Route("/editarUsuario/{id}", name="editarUsuario2", methods={"POST"})
+     */
+    public function editarUsuario2(Request $request, $id):Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $usuarioRepo = $entityManager->getRepository(Usuario::class)->find($id);
+
+        if (!$usuarioRepo) {
+            throw $this->createNotFoundException( 
+                'No existe un usuario con id: '.$id
+            );
+        }
+        
+        
+        $usuarioRepo->setNombre($request->request->get('nombre'))
+            ->setContrasenia(md5($request->request->get('contrasenia')));
+            
+        $entityManager->flush();
+
+        return $this->redirectToRoute('usuarios');
+    }
+
 
 }
