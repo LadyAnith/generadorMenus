@@ -24,17 +24,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                
+                    {% for plato in platos %}
                     <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row">{{ plato.id}}</th>
+                        <td>{{ plato.nombre}}</td>
+                        <td>{{ plato.calorias}}</td>
+                        <td>{{ plato.tipo}}</td>
                         <td>
                             <button type="button" class="btn btn-outline-success"><a href="#"><i class="fas fa-edit"></i></a></button>
                             <button type="button" class="btn btn-outline-danger"><a href="#"><i class="fas fa-trash-alt"></i></a></button>
                         </td>
                     </tr>
+                    {% endfor %}
                 
                 </tbody>
             </table>
@@ -61,17 +62,21 @@
                                     <label for="calorias">Calorías:</label>
                                     <input type="number" class="form-control" id="calorias" name="calorias" step="0.01">
                                 </div>
+                                
                                 <div class="form-group">
-    
+                                
                                         <select class="nice-select" name="tipoPlatos" >
-                                            <option value="1">Desayuno</option>
-                                            <option value="2">Comida</option>
-                                            <option value="3">Cena</option>
-                                            <option value="4">Postre</option>
+                                        {% for tipoPlato in tipoPlatos %}
+                                            <option value="{{ tipoPlato.id}}">{{ tipoPlato.nombre}}</option>
+                                        {% endfor %}
                                         </select>
+                                
                                 </div>
+                                
                                
                                 <br/>
+                                <br/>
+                                
                                 <button type="submit" class="btn btn-primary">Registrar</button>
                                 <input type="hidden" name="pagina_actual">
                                 <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
