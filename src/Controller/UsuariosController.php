@@ -42,10 +42,13 @@ class UsuariosController extends AbstractController
             ->setContrasenia(md5($request->request->get('contrasenia')));
 
         $entityManager->persist($usuario);
+        $nombreUsu = $usuario->getNombre();
 
         $entityManager->flush();
+        $this->addFlash('info','Bienvenido '.$nombreUsu. ' has sido dado de alta satistactoriamente!');
 
         return $this->redirectToRoute('usuarios');
+
     }
 
     /**
@@ -62,6 +65,8 @@ class UsuariosController extends AbstractController
         $entityManager->flush();
 
         $usuarios = $usuarioRepo->findAll();
+
+        $this->addFlash('info','Usuario dado de baja correctamente!');
 
         return $this->redirectToRoute('usuarios');
 

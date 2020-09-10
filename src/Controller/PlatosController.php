@@ -56,9 +56,12 @@ class PlatosController extends AbstractController
         $plato->setNombre($request->request->get('nombre'))
             ->setCalorias($calorias)
             ->setTipo($tipoPlato);
+        $nombrePlato = $plato->getNombre();
 
         $entityManager->persist($plato);
         $entityManager->flush();
+
+        $this->addFlash('info','Se ha ingresado el plato: '.$nombrePlato. ' correctamente.');
         return $this->redirectToRoute('listado');
     }
 
@@ -76,6 +79,8 @@ class PlatosController extends AbstractController
         $entityManager->flush();
 
         $platos = $platoRepo->findAll();
+
+        $this->addFlash('info','Plato eliminado correctamente!');
 
         return $this->redirectToRoute('listado');
     }
