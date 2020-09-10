@@ -116,6 +116,8 @@ class UsuariosController extends AbstractController
             
         $entityManager->flush();
 
+        $this->addFlash('info','Usuario modificado correctamente!');
+
         return $this->redirectToRoute('usuarios');
     }
 

@@ -153,6 +153,9 @@ class PlatosController extends AbstractController
         //Esto limpia caché y cirra conexion ,o solo limpia caché no recuerdo
         $entityManager->flush();
 
+        //Añadir mensajes que aparecerán sólo una vez cuando la página se recargue
+        $this->addFlash('info','Plato modificado correctamente!');
+
         return $this->redirectToRoute('listado');
     }
 
