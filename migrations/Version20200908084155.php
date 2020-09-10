@@ -14,7 +14,7 @@ final class Version20200908084155 extends AbstractMigration
 {
     public function getDescription() : string
     {
-        return '';
+        return 'Creación de la estructura de tablas de la BBDD';
     }
 
     public function up(Schema $schema) : void

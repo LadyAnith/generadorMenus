@@ -28,11 +28,12 @@
                     <tr>
                         <th scope="row">{{ plato.id}}</th>
                         <td>{{ plato.nombre}}</td>
-                        <td>{{ plato.calorias}}</td>
-                        <td>{{ plato.tipo}}</td>
+                        <!--Utilizo el filter replace para reemplazar los puntos de los decimales por comas en el visionado de la tabla-->
+                        <td>{{ plato.calorias|replace({'.':','})}}</td>
+                        <td>{{ plato.tipo.nombre}}</td>
                         <td>
-                            <button type="button" class="btn btn-outline-success"><a href="#"><i class="fas fa-edit"></i></a></button>
-                            <button type="button" class="btn btn-outline-danger"><a href="#"><i class="fas fa-trash-alt"></i></a></button>
+                            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#editarPlato"><a href="/editarPlato/{{plato.id}}"><i class="fas fa-edit"></i></a></button>
+                            <button type="button" class="btn btn-outline-danger"><a href="/bajaPlato/{{plato.id}}"><i class="fas fa-trash-alt"></i></a></button>
                         </td>
                     </tr>
                     {% endfor %}
@@ -86,5 +87,56 @@
                 </div>
             </div>
 
+                  
 
+            <!--------------------------MODAL EDITAR PLATO-------------------------------->
+
+            {% if plato is defined %} 
+            <div class="modal" tabindex="-1" id="editarPlato">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Editar Plato</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                            <form action="/editarPlato/{{plato.id}}" method="post">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{plato.nombre}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="calorias">Calorías:</label>
+                                    <input type="number" class="form-control" id="calorias" name="calorias" step="0.01" value="{{plato.calorias}}">
+                                </div>
+                                
+                                <div class="form-group">
+                                
+                                        <select class="nice-select" name="tipoPlatos" >
+                                        {% for tipoPlato in tipoPlatos %} 
+                                        <!--EL ID va en el value-->
+                                            <option value="{{ tipoPlato.id}}" {% if tipoPlato.id == plato.tipo.id %}selected  {% endif %}>{{ tipoPlato.nombre}}</option>
+                                        {% endfor %}
+                                        </select>
+                                
+                                </div>
+                                
+                               
+                                <br/>
+                                <br/>
+                                
+                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                                <input type="hidden" name="pagina_actual">
+                                <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <script type="text/javaScript">
+                $('#editarPlato').modal('show');
+            </script>
+             {% endif %}
 {% endblock %}
+
