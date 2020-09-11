@@ -17,10 +17,10 @@
                 <div class="card-body">
                     <p class="card-text">Seleccione un desayuno:</p>
                     <div class="form-group">
-                        <select class="nice-select" name="desayuno" >                  
-                            <option value="">colacao</option>
-                            <option value="">café</option>
-                            <option value="">bizcocho</option>                       
+                        <select class="nice-select" name="desayuno" >   
+                            {% for platoDesayuno in platosDesayuno %}               
+                            <option value="{{ platoDesayuno.id }}">{{ platoDesayuno.nombre }}</option>
+                            {% endfor %}                      
                         </select>
                     </div>
                 </div>
@@ -34,9 +34,9 @@
                     <p class="card-text">Seleccione una comida:</p>
                     <div class="form-group">
                         <select class="nice-select" name="comida" >                  
-                            <option value="">tallarines</option>
-                            <option value="">pollo asado</option>
-                            <option value="">Ensalada capresse</option>                       
+                            {% for platoComida in platosComida %}               
+                            <option value="{{ platoComida.id }}">{{ platoComida.nombre }}</option>
+                            {% endfor %}                        
                         </select>
                     </div>
                     <br/>
@@ -44,9 +44,9 @@
                     <p class="card-text">Seleccione un postre para la comida:</p>
                     <div class="form-group">
                         <select class="nice-select" name="postreComida" >                  
-                            <option value="">fresas con nata</option>
-                            <option value="">tarta de manzana</option>
-                            <option value="">Flan</option>                       
+                            {% for platoPostre in platosPostre %}               
+                            <option value="{{ platoPostre.id }}">{{ platoPostre.nombre }}</option>
+                            {% endfor %}                       
                         </select>
                     </div>
                 </div>
@@ -60,9 +60,9 @@
                     <p class="card-text">Seleccione una cena:</p>
                     <div class="form-group">
                         <select class="nice-select" name="cena" >                  
-                            <option value="">Salmón a la plancha</option>
-                            <option value="">Sepia en salsa</option>
-                            <option value="">Verduritas en tempura</option>                       
+                            {% for platoCena in platosCena %}               
+                            <option value="{{ platoCena.id }}">{{ platoCena.nombre }}</option>
+                            {% endfor %}                        
                         </select>
                     </div>
                     <br/>
@@ -70,9 +70,9 @@
                     <p class="card-text">Seleccione un postre para la cena:</p>
                     <div class="form-group">
                         <select class="nice-select" name="postreCena" >                  
-                            <option value="">fresas con nata</option>
-                            <option value="">tarta de manzana</option>
-                            <option value="">Flan</option>                       
+                            {% for platoPostre in platosPostre %}               
+                            <option value="{{ platoPostre.id }}">{{ platoPostre.nombre }}</option>
+                            {% endfor %}                       
                         </select>
                     </div>
                 </div>

@@ -16,23 +16,6 @@ class NuevoMenuController extends AbstractController
      */
     public function index()
     {
-        return $this->render('nuevo_menu/index.html.twig', [
-            'controller_name' => 'NuevoMenuController',
-        ]);
-    }
-
-    
-    /**
-     * @Route("/generarMenu", name="generar_menu")
-     */
-    public function generarMenu()
-    {
-        //Aqui iria lo del generador de PDF que tengo en trello
-
-        return $this->render('nuevo_menu/index.html.twig', [
-            'controller_name' => 'NuevoMenuController',
-        ]);
-
         $entityManager = $this->getDoctrine()->getManager();
         //Hago select de la tabla los tipo de platos
         $tipoPlatoRepo = $this->getDoctrine()->getRepository(TipoPlato::class);
@@ -54,5 +37,28 @@ class NuevoMenuController extends AbstractController
         $platosComida = $this->getDoctrine()->getRepository(Plato::class)->findBy($filtroComida);
         $platosCena = $this->getDoctrine()->getRepository(Plato::class)->findBy($filtroCena);
         $platosPostre = $this->getDoctrine()->getRepository(Plato::class)->findBy($filtroPostre);
+
+        return $this->render('nuevo_menu/index.html.twig', [
+            'controller_name' => 'NuevoMenuController',
+            'platosDesayuno' => $platosDesayuno,
+            'platosComida' => $platosComida,
+            'platosCena' => $platosCena,
+            'platosPostre' => $platosPostre,
+        ]);
+    }
+
+    
+    /**
+     * @Route("/generarMenu", name="generar_menu")
+     */
+    public function generarMenu()
+    {
+        //Aqui iria lo del generador de PDF que tengo en trello
+
+        return $this->render('nuevo_menu/index.html.twig', [
+            'controller_name' => 'NuevoMenuController',
+        ]);
+
+       
     }
 }
