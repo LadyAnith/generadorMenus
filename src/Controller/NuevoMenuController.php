@@ -8,6 +8,7 @@ use App\Entity\Plato;
 use App\Entity\TipoPlato;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Mpdf\Mpdf;
 
 class NuevoMenuController extends AbstractController
 {
