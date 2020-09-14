@@ -50,16 +50,38 @@ class NuevoMenuController extends AbstractController
 
     
     /**
-     * @Route("/generarMenu", name="generar_menu")
+     * @Route("/generarMenu", name="generar_menu", methods={"POST"})
      */
-    public function generarMenu()
+    public function generarMenu(Request $request) 
     {
+        $des = $request->request->get('desayuno');
+        $com = $request->request->get('comida');
+        $pCom = $request->request->get('postreComida');
+        $cen = $request->request->get('cena');
+        $pCen = $request->request->get('postreCena'); 
+        
+         //AQUI los repos para pillar datos
+         $entityManager = $this->getDoctrine()->getManager();
+         $platoRepo = $entityManager->getRepository(Plato::class);
+
+         //Busco en el repositorio los datos que he seleccionado en el gestor de menú
+        $desayuno = $platoRepo->find($des);
+        $comida = $platoRepo->find($com);
+        $postreComida = $platoRepo->find($pCom);
+        $cena = $platoRepo->find($cen);
+        $postreCena = $platoRepo->find($pCen);
+
         //Aqui iria lo del generador de PDF que tengo en trello
-
-        return $this->render('nuevo_menu/index.html.twig', [
-            'controller_name' => 'NuevoMenuController',
+        $pdf = $this->render('nuevo_menu/menuDia.html.twig', [
+            'desayuno'=>$desayuno,
+            'comida'=>$comida,
+            'postreComida'=>$postreComida,
+            'cena'=>$cena,
+            'postreCena'=>$postreCena,
         ]);
-
+        $mpdf = new Mpdf();
+        $mpdf->WriteHTML($pdf);
+        $mpdf->Output();
        
     }
 }
