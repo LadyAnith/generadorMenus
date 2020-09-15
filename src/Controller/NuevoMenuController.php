@@ -60,9 +60,11 @@ class NuevoMenuController extends AbstractController
         $cen = $request->request->get('cena');
         $pCen = $request->request->get('postreCena'); 
         
+
          //AQUI los repos para pillar datos
          $entityManager = $this->getDoctrine()->getManager();
          $platoRepo = $entityManager->getRepository(Plato::class);
+        
 
          //Busco en el repositorio los datos que he seleccionado en el gestor de menú
         $desayuno = $platoRepo->find($des);
@@ -74,11 +76,13 @@ class NuevoMenuController extends AbstractController
         //Aqui iria lo del generador de PDF que tengo en trello
         $pdf = $this->render('nuevo_menu/menuDia.html.twig', [
             'desayuno'=>$desayuno,
-            'comida'=>$comida,
+            'comida'=>$comida, 
             'postreComida'=>$postreComida,
             'cena'=>$cena,
             'postreCena'=>$postreCena,
+           
         ]);
+
         $mpdf = new Mpdf();
         $mpdf->WriteHTML($pdf);
         $mpdf->Output();

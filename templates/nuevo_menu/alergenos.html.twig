@@ -1,0 +1,6 @@
+
+{% if not alergenos is empty %}
+    {% for alergeno in alergenos %} 
+    <img class="alerg" src="/img/alergeno_icons/{{alergeno.imagen}}"/> 
+    {% endfor %}
+{% endif %}
