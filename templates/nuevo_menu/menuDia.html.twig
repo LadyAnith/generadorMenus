@@ -13,6 +13,14 @@
             text-align: center;
         }
 
+        h2, h3 {
+            color: #6f3307;
+        }
+
+        h1{
+            margin:0;
+        }
+
         h2,h3 {
             margin-bottom:0;
         }
@@ -25,8 +33,16 @@
             width: 5cm;
         }
         .alerg{
-            width: 1cm;
-            height: 1.5cm;
+            height: 1cm;
+        }
+        p{
+            margin-bottom:0;     
+        }
+        strong {
+            font-size: 1.2em;
+        }
+        i {
+            color: gray;
         }
        
     </style>
@@ -36,32 +52,37 @@
         <img src="/img/decoradorUp.png"/>
         <h1>Nuestro Menú</h1>
         
+            <div> 
             <h2>Desayuno</h2>
             <img class="deco1" src="/img/decorador1.png"/>
-            <p><strong>{{desayuno.nombre}}</strong>  <i>{{desayuno.calorias}} ckal</i></p>
+            <p><strong>{{desayuno.nombre}}.</strong> &nbsp;&nbsp; <i>{{desayuno.calorias}} ckal</i></p>
             {% include 'nuevo_menu/alergenos.html.twig' with {'alergenos': desayuno.listaAlergenos} %}
-       
+            </div> 
+
+            <div> 
             <h2>Comida</h2>
             <img class="deco1" src="/img/decorador1.png"/>
-            <p><strong>{{comida.nombre}}</strong>  <i>{{comida.calorias}} ckal</i></p>
+            <p><strong>{{comida.nombre}}.</strong> &nbsp;&nbsp; <i>{{comida.calorias}} ckal</i></p>
             {% include 'nuevo_menu/alergenos.html.twig' with {'alergenos': comida.listaAlergenos} %}
         
             <h3>Postre</h3>
             <img class="deco2" src="/img/decorador2.png"/>
-            <p><strong>{{postreComida.nombre}}</strong>  <i>{{postreComida.calorias}} ckal</i></p>
+            <p><strong>{{postreComida.nombre}}.</strong> &nbsp;&nbsp; <i>{{postreComida.calorias}} ckal</i></p>
             {% include 'nuevo_menu/alergenos.html.twig' with {'alergenos': postreComida.listaAlergenos} %}
+            </div> 
         
+            <div> 
             <h2>Cena</h2>
             <img class="deco1" src="/img/decorador1.png"/>
-            <p><strong>{{cena.nombre}}</strong>  <i>{{cena.calorias}} ckal</i></p>
+            <p><strong>{{cena.nombre}}.</strong> &nbsp;&nbsp; <i>{{cena.calorias}} ckal</i></p>
             {% include 'nuevo_menu/alergenos.html.twig' with {'alergenos': cena.listaAlergenos} %}
-        
             <h3>Postre</h3>
             <img class="deco2" src="/img/decorador2.png"/>
-            <p><strong>{{postreCena.nombre}}</strong>  <i>{{postreCena.calorias}} ckal</i></p>
+            <p><strong>{{postreCena.nombre}}.</strong> &nbsp;&nbsp; <i>{{postreCena.calorias}} ckal</i></p>
             {% include 'nuevo_menu/alergenos.html.twig' with {'alergenos': postreCena.listaAlergenos} %}
+            </div> 
 
-        <img src="/img/decoradorBottom.png"/>
+            <img src="/img/decoradorBottom.png"/>
     </div>
     
 </body>
