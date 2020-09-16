@@ -4,11 +4,12 @@ namespace App\Entity;
 
 use App\Repository\UsuarioRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UsuarioRepository::class)
  */
-class Usuario
+class Usuario implements UserInterface
 {
     /**
      * @ORM\Id
@@ -17,13 +18,13 @@ class Usuario
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=50)
+   /**
+     * @ORM\Column(type="string", length=50, unique=true)
      */
     private $nombre;
 
-    /**
-     * @ORM\Column(type="string", length=50)
+   /**
+     * @ORM\Column(type="string", length=150)
      */
     private $contrasenia;
 
@@ -55,4 +56,57 @@ class Usuario
 
         return $this;
     }
+
+     // ------------- METODOS DEL LOGIN -------------
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
+    {
+        return (string) $this->getNombre();
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        //$this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getPassword(): string
+    {
+        return (string) $this->getContrasenia();
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    // /FIN --------- METODOS DEL LOGIN -------------
 }

@@ -21,8 +21,8 @@ final class Version20200908084200 extends AbstractMigration
     {
         //Usuarios por defecto
         $this->addSql('INSERT INTO usuario (id, nombre, contrasenia) VALUES '
-                        .' (NULL, \'Admin\',\'81dc9bdb52d04dc20036dbd8313ed055\')'
-                        .',(NULL, \'Ani\',\'d82c8d1619ad8176d665453cfb2e55f0\')'
+                        .' (NULL, \'Admin\',\'$argon2id$v=19$m=65536,t=4,p=1$ZDd5ZjczN0lQZDVlU2RYVg$FDAEWNY6FYQy69f4W7yeg8fhLBsTiasrlRJBwmoyA7E\')'
+                        .',(NULL, \'Ani\',\'$argon2id$v=19$m=65536,t=4,p=1$eUg2bWEzMVRrNEQyTFcydg$pEQdZmSVfcgR5Bd/zdEnGFQSKE9TMp36AIeC1v2umso\')'
         );
 
         //Tipos de plato por defecto
