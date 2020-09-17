@@ -9,6 +9,12 @@ use App\Entity\TipoPlato;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Mpdf\Mpdf;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
+    /**
+     * @IsGranted("ROLE_USER")
+     */
+
 
 class NuevoMenuController extends AbstractController
 {

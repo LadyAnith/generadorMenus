@@ -1,6 +1,6 @@
 security:
     encoders:
-        App\Entity\User:
+        App\Entity\Usuario:
             algorithm: auto
 
 
@@ -22,11 +22,11 @@ security:
             provider: app_user_provider
             guard:
                 authenticators:
-                    -App\Security\AppCustomAuthenticator
-            Logout:
-                path: app_Logout
+                    - App\Security\AppCustomAuthenticator
+            logout:
+                path: app_logout
                 # where to redirect after logout
-                target: app_login
+                target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
