@@ -10,12 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-    /**
-     * @IsGranted("ROLE_USER")
-     */
-
-
-
+/**
+ * @IsGranted("ROLE_USER")
+ */
 class PlatosController extends AbstractController
 {
     /**

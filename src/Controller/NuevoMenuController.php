@@ -11,11 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Mpdf\Mpdf;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-    /**
-     * @IsGranted("ROLE_USER")
-     */
-
-
+/**
+* @IsGranted("ROLE_USER")
+*/
 class NuevoMenuController extends AbstractController
 {
     /**
