@@ -89,6 +89,8 @@ class NuevoMenuController extends AbstractController
 
         $mpdf = new Mpdf();
         $mpdf->WriteHTML($pdf);
+        //Añadir otra página al pdf
+        $mpdf->AddPage();
         $mpdf->Output();
        
     }
