@@ -7,10 +7,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Usuario;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 class UsuariosController extends AbstractController
 {
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/usuarios", name="usuarios")
      */
     public function index()
@@ -27,20 +31,26 @@ class UsuariosController extends AbstractController
             //Aquí indico el nombre de la variable donde guardo todo el listado, y le doy un name
             'usuarios'=>$usuarios,
         ]);
-    }
+    }   
+
 
     /**
      * @Route("/altaUsuario", name="altaUsuario", methods={"POST"})
      */
 
-    public function altaUsuario(Request $request): Response
+    public function altaUsuario(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
+
+        
         $entityManager = $this->getDoctrine()->getManager();
         $usuario = new Usuario();
+        $pass = $request->request->get('contrasenia');
 
-        $usuario->setNombre($request->request->get('nombre'))
-            ->setContrasenia(md5($request->request->get('contrasenia')));
-
+        $usuario->setNombre($request->request->get('nombre'));
+        
+        $encoded = $encoder->encodePassword($usuario, $pass);
+        $usuario->setContrasenia($encoded);
+        
         $entityManager->persist($usuario);
         $nombreUsu = $usuario->getNombre();
 

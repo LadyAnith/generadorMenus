@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Alergenos;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plato;
@@ -28,12 +29,15 @@ class PlatosController extends AbstractController
         $tipoPlatosRepo = $this->getDoctrine()->getRepository(TipoPlato::class);
         $tipoPlatos = $tipoPlatosRepo->findAll();
 
+        $alergenosRepo = $this->getDoctrine()->getRepository(Alergenos::class);
+        $alergenos= $alergenosRepo->findAll();
 
         return $this->render('platos/index.html.twig', [
             'controller_name' => 'PlatosController',
             //Añadir aqui ambas variables de los listados
             'platos'=>$platos,
             'tipoPlatos'=>$tipoPlatos,
+            'alergenos' =>$alergenos,
         ]);
     }
 

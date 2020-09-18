@@ -1,0 +1,8 @@
+.user_info {
+    width: 100%;
+    background: grey; /*cambiar*/
+    position: fixed;
+    top: o;
+    padding: 5px 10px 5px;
+    text-align: right;
+}
