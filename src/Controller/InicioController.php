@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class InicioController extends AbstractController
 {
     /**
-     * @Route("/inicio", name="inicio")
+     * @IsGranted("ROLE_USER")
+     * @Route({"/","/inicio"}, name="inicio")
      */
     public function index()
     {

@@ -73,10 +73,12 @@
                                         </select>
                                 
                                 </div
-                                <div class="form-group">
-                                        {% for alergeno in alergenos %} 
-                                            <img class="alerg" src="/img/alergeno_icons/{{alergeno.imagen}}"/> 
-                                        {% endfor %}
+                                <div class="form-group">      
+                                    {% for alergeno in alergenos %}
+                                        <label class="alergenos"><input type="checkbox" name="alergenos[]" value="{{alergeno.id}}"/>
+                                         <img class="alerg" title="{{alergeno.nombre}}" src="/img/alergeno_icons/{{alergeno.imagen}}"/></label> 
+                                    {% endfor %}
+
                                 </div>
                                
                                 <br/>

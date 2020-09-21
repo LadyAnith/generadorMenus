@@ -7,9 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plato;
 use App\Entity\TipoPlato;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
  * @IsGranted("ROLE_USER")
@@ -49,7 +51,7 @@ class PlatosController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         //Con esta variable voy a hacer el select de la tabla los tipo de platos
         $tipoplatoRepo = $this->getDoctrine()->getRepository(TipoPlato::class);
-       
+        $alergenosRepo = $this->getDoctrine()->getRepository(Alergenos::class);
 
         //Casteo las calorías a float 
         $calorias = floatval($request->request->get('calorias'));
@@ -59,11 +61,19 @@ class PlatosController extends AbstractController
         //Obtenemos el tipo que es un objeto que hemos seleccionado
         $tipoPlato = $tipoplatoRepo->find($idTipo);
 
+         //Casteo la id de los alergenos a int 
+        $idAlergenos = $request->request->get('alergenos');
+        //Obtenemos el alergeno que es un objeto que hemos seleccionado anteriormente
+        $alergenos = $alergenosRepo->findBy(
+           ['id'=> $idAlergenos]
+       );
+
         $plato = new Plato();
 
         $plato->setNombre($request->request->get('nombre'))
             ->setCalorias($calorias)
-            ->setTipo($tipoPlato);
+            ->setTipo($tipoPlato)
+            ->setListaAlergenos(new ArrayCollection($alergenos));
         $nombrePlato = $plato->getNombre();
 
         $entityManager->persist($plato);
