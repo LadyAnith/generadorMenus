@@ -87,10 +87,15 @@ class NuevoMenuController extends AbstractController
            
         ]);
 
+        $leyenda = $this->render('nuevo_menu/leyendaAlergenos.html.twig',[
+
+        ]);
+
         $mpdf = new Mpdf();
         $mpdf->WriteHTML($pdf);
         //Añadir otra página al pdf
         $mpdf->AddPage();
+        $mpdf->WriteHTML($leyenda);
         $mpdf->Output();
        
     }
