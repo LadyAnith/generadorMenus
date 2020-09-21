@@ -116,6 +116,10 @@ class PlatosController extends AbstractController
         $tipoPlatosRepo = $this->getDoctrine()->getRepository(TipoPlato::class);
         $tipoPlatos = $tipoPlatosRepo->findAll();
 
+        $tipoAlergenoRepo = $this->getDoctrine()->getRepository(Alergenos::class);
+        $tipoAlergenos = $tipoAlergenoRepo->findAll();
+
+
         if (!$plato) {
             throw $this->createNotFoundException(
                 'No existe Plato con id: '.$id
@@ -130,6 +134,8 @@ class PlatosController extends AbstractController
             'platos'=>$platos,
             //ESTO es la variable de tipos de platos que se muestra EN LOSSSSS SELECTORES de editar y alta
             'tipoPlatos'=>$tipoPlatos,
+            //ESTO es la variable de tipos de alergenos que se muestran en los check de editar y alta
+            'alergenos'=>$tipoAlergenos,
             //AQUI falta una variable del PLATO a editar que en la plantilla se llama plato 
             'plato'=> $plato,
         ]);
@@ -145,16 +151,25 @@ class PlatosController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $platoRepo = $entityManager->getRepository(Plato::class);
         $tipoPlatoRepo = $entityManager->getRepository(TipoPlato::class);
+        $alergenoRepo = $entityManager->getRepository(Alergenos::class);
 
         //AQUI pillas los valores de la request para hacer transformaciones
         //Casteo las calorías a float 
         $calorias = floatval($request->request->get('calorias'));
         //Casteo la id de los tipos a int 
         $idTipo = intval($request->request->get('tipoPlatos'));
+        //Recojo el tipo de alérgenos del plato
+        $idAlergenos = $request->request->get('alergenos');
 
         //AQUI pillas los objetos de base de datos por ID
         $tipoPlato = $tipoPlatoRepo->find($idTipo);
         $plato = $platoRepo->find($id);
+
+
+        //Aqui pillamos los objetos de base de datos por id
+        $alergeno = $alergenoRepo->findBy(
+            ['id'=> $idAlergenos]
+        ); 
        
         //AQUI compruebas que existan los objetos en base de datos y no haya habido problemas al recuperarlos
         if (!$platoRepo) {
@@ -168,12 +183,19 @@ class PlatosController extends AbstractController
             );
         }
 
+        if (!$alergeno) {
+            throw $this->createNotFoundException( 
+                'No existe un alérgeno con id: '.$idAlergenos
+            );
+        }
+
         //Aquí reconstruyes el plato a editar con los valores de las request para poder actualizarlo
         $plato->setNombre($request->request->get('nombre'))
         ->setCalorias($calorias)
-        ->setTipo($tipoPlato);
+        ->setTipo($tipoPlato)
+        ->setListaAlergenos(new ArrayCollection($alergeno));
         
-        //Esto limpia caché y cirra conexion ,o solo limpia caché no recuerdo
+        //Se encarga de hacer el update
         $entityManager->flush();
 
         //Añadir mensajes que aparecerán sólo una vez cuando la página se recargue

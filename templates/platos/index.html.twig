@@ -128,10 +128,18 @@
                                         </select>
                                 
                                 </div>
-                                
                                
                                 <br/>
                                 <br/>
+                                     <div class="form-group">      
+                                    {% for alergeno in alergenos %}
+                                        <label class="alergenos">
+                                        <input type="checkbox" name="alergenos[]" value="{{alergeno.id}}" {% if alergeno.id in plato.listaAlergenos|map(e => e.id) %} checked {% endif %}
+                                         />
+                                         <img class="alerg" title="{{alergeno.nombre}}" src="/img/alergeno_icons/{{alergeno.imagen}}"/></label> 
+                                    {% endfor %}
+
+                                </div>
                                 
                                 <button type="submit" class="btn btn-primary">Aceptar</button>
                                 <input type="hidden" name="pagina_actual">
