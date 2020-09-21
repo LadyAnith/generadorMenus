@@ -59,24 +59,34 @@
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre">
                                 </div>
-                                <div class="form-group">
-                                    <label for="calorias">Calorías:</label>
-                                    <input type="number" class="form-control" id="calorias" name="calorias" step="0.01">
+
+                                <div class="form-group row">
+                                <div class=" col-sm-6">
+                                    <div class="form-group">
+                                        <label for="calorias">Calorías:</label>
+                                        <input type="number" class="form-control" id="calorias" name="calorias" step="0.01">
+                                    </div>   
+                                </div>                               
+                                    
+                                    <div class=" col-sm-6">
+                                        <div class="form-group">
+                                            <label>Tipo de Plato:</label>
+                                            <br/>
+                                            <select class="nice-select" name="tipoPlatos" >
+                                            {% for tipoPlato in tipoPlatos %}
+                                                <option value="{{ tipoPlato.id}}">{{ tipoPlato.nombre}}</option>
+                                            {% endfor %}
+                                            </select>
+                                         </div>
+                                     </div>
                                 </div>
-                                
-                                <div class="form-group">
-                                
-                                        <select class="nice-select" name="tipoPlatos" >
-                                        {% for tipoPlato in tipoPlatos %}
-                                            <option value="{{ tipoPlato.id}}">{{ tipoPlato.nombre}}</option>
-                                        {% endfor %}
-                                        </select>
-                                
-                                </div
-                                <div class="form-group">      
+
+                                <div class="form-group">   
+                                    <label>Alérgenos</label>   
+                                    <br/>
                                     {% for alergeno in alergenos %}
                                         <label class="alergenos"><input type="checkbox" name="alergenos[]" value="{{alergeno.id}}"/>
-                                         <img class="alerg" title="{{alergeno.nombre}}" src="/img/alergeno_icons/{{alergeno.imagen}}"/></label> 
+                                         <img class="alerg" title="{{alergeno.nombre|capitalize}}" data-toggle="tooltip" data-placement="top"  src="/img/alergeno_icons/{{alergeno.imagen}}"/></label> 
                                     {% endfor %}
 
                                 </div>
@@ -113,30 +123,34 @@
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" value="{{plato.nombre}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="calorias">Calorías:</label>
-                                    <input type="number" class="form-control" id="calorias" name="calorias" step="0.01" value="{{plato.calorias}}">
-                                </div>
-                                
-                                <div class="form-group">
-                                
+
+                                <div class="form-group row">
+                                    <div class=" col-sm-6">   
+                                            <div class="form-group">
+                                                <label for="calorias">Calorías:</label>
+                                                <input type="number" class="form-control" id="calorias" name="calorias" step="0.01" value="{{plato.calorias}}">
+                                            </div>
+                                    </div>
+                               
+                                     <div class=" col-sm-6">  
+                                        <label for="calorias">Tipo plato:</label><br/>
                                         <select class="nice-select" name="tipoPlatos" >
                                         {% for tipoPlato in tipoPlatos %} 
                                         <!--EL ID va en el value-->
                                             <option value="{{ tipoPlato.id}}" {% if tipoPlato.id == plato.tipo.id %}selected  {% endif %}>{{ tipoPlato.nombre}}</option>
                                         {% endfor %}
                                         </select>
+                                    </div>
                                 
                                 </div>
-                               
-                                <br/>
-                                <br/>
-                                     <div class="form-group">      
+                                     <div class="form-group"> 
+                                     <label>Alérgenos:</label>  
+                                     <br/>   
                                     {% for alergeno in alergenos %}
                                         <label class="alergenos">
                                         <input type="checkbox" name="alergenos[]" value="{{alergeno.id}}" {% if alergeno.id in plato.listaAlergenos|map(e => e.id) %} checked {% endif %}
                                          />
-                                         <img class="alerg" title="{{alergeno.nombre}}" src="/img/alergeno_icons/{{alergeno.imagen}}"/></label> 
+                                         <img class="alerg" title="{{alergeno.nombre|capitalize}}" data-toggle="tooltip" data-placement="top" src="/img/alergeno_icons/{{alergeno.imagen}}"/></label> 
                                     {% endfor %}
 
                                 </div>

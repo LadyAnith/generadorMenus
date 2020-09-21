@@ -38,7 +38,7 @@ final class Version20200908084200 extends AbstractMigration
                         .' ( 1, \'altramuces\', \'altramuces.png\')'
                         .',( 2, \'apio\', \'apio.png\')'
                         .',( 3, \'cacahuetes\', \'cacahuetes.png\')'
-                        .',( 4, \'frutos_secos\', \'frutos_secos.png\')'
+                        .',( 4, \'frutos secos\', \'frutos_secos.png\')'
                         .',( 5, \'gluten\', \'gluten.png\')'
                         .',( 6, \'huevos\', \'huevos.png\')'
                         .',( 7, \'lacteos\', \'lacteos.png\')'
