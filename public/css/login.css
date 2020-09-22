@@ -57,15 +57,23 @@ background-color: white;
 .links{
 color: white;
 }
-
-.modal-body{
+.modal-dialog{
+    box-shadow: 0px 0px 5px 1px #FFC312;
+}
+.modal-content{
     background-image: url('/img/alta.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+
+}
+
+.modal-body{
+    background-color: rgba(0, 0, 0, 0.5) !important;
     color: whitesmoke;
 }
 
 .modal-header{
-    background-color: #171512;
+    background-color: rgba(0, 0, 0, 0.10) !important;
     color: #FFC312;
 }

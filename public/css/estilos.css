@@ -22,3 +22,13 @@ label.alergenos input:checked +img{
     transition: .2s;
     box-shadow: 0px 0px 5px 5px grey;
 }
+
+/*ESTILOS NUEVO MENU*/
+#jumboMenu{
+    background-image: url('/img/nuevoMenu.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color:white;
+    font-style: inherit;
+    box-shadow: 0px 0px 5px 5px grey;
+}
