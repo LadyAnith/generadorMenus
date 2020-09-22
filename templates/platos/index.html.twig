@@ -118,7 +118,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="/editarPlato/{{plato.id}}" method="post">
+                            <form action="{{ path('editarPlato', {id: plato.id}) }}" method="post">
                                 <div class="form-group">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" value="{{plato.nombre}}">

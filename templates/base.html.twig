@@ -42,21 +42,16 @@
             <div class="container">
                 <h1 class="display-4">Generador de Menús</h1>
                 <p class="lead">Menú del día</p>
-                {% if app.user %}
-                    <div class="mb-3">
-                        El usuario: {{ app.user.username }}, está conectado <a href="{{ path('app_logout') }}">Desconectar</a>
-                    </div>
-                {% endif %}
             </div>
         </div>
         {% endblock %}
 
         {% block barraMenu %}
         <nav class="nav">
-            <a class="nav-link active" href="/inicio">Inicio</a>
-            <a class="nav-link" href="/usuarios">Usuarios</a>
-            <a class="nav-link" href="/listado">Platos</a>
-            <a class="nav-link disabled" href="/nuevoMenu" tabindex="-1" aria-disabled="true">Nuevo Menú</a>
+            <a class="nav-link active" href="{{ path('inicio') }}">Inicio</a>
+            <a class="nav-link" href="{{ path('usuarios') }}">Usuarios</a>
+            <a class="nav-link" href="{{ path('listado') }}">Platos</a>
+            <a class="nav-link" href="{{ path('nuevo_menu') }}">Nuevo Menú</a>
         </nav>
          {% endblock %}
         {% block mensajesFlash %}

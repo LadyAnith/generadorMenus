@@ -29,8 +29,8 @@
                         <td>{{ usuario.nombre}}</td>
                         <td>{{ usuario.contrasenia}}</td>
                         <td>
-                            <button type="button" class="btn btn-outline-success"><a href="/editarUsuario/{{ usuario.id}}"><i class="fas fa-edit"></i></a></button>
-                            <button type="button" class="btn btn-outline-danger"><a href="bajaUsuario/{{ usuario.id }}"><i class="fas fa-trash-alt"></i></a></button>
+                            <button type="button" class="btn btn-outline-success"><a href="{{ path('editarUsuario', {id: usuario.id}) }}"><i class="fas fa-edit"></i></a></button>
+                            <button type="button" class="btn btn-outline-danger"><a href="{{ path('bajaUsuario', {id: usuario.id}) }}"><i class="fas fa-trash-alt"></i></a></button>
                         </td>
                     </tr>
                   {% endfor %}
@@ -54,7 +54,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="/editarUsuario/{{usuario.id}}" method="post">
+                            <form action="{{ path('editarUsuario', {id: usuario.id}) }}" method="post">
                                 <div class="form-group">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" value="{{usuario.nombre}}"> 
@@ -95,9 +95,9 @@
                         <div class="modal-body">
 
                         {% if actualizado is defined %} 
-                            <form action="/editarUsuario/{{usuario.id}}" method="post">
+                            <form action="{{ path('editarUsuario', {id: usuario.id}) }}" method="post">
                         {% else %}
-                            <form action="/altaUsuario" method="post">
+                            <form action="{{ path('altaUsuario') }}" method="post">
                         {% endif %}
                         {% if actualizado is defined %} 
                                 <div class="form-group">

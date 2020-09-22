@@ -95,6 +95,7 @@ class NuevoMenuController extends AbstractController
         $mpdf->WriteHTML($pdf);
         //Añadir otra página al pdf
         $mpdf->AddPage();
+        //Escribir en la página nueva del pdf el siguiente html
         $mpdf->WriteHTML($leyenda);
         $mpdf->Output();
        
