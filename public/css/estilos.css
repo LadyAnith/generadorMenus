@@ -50,6 +50,8 @@ body{
 .nav a{
     color: #734222;
     text-decoration: none;
+    font-family: 'Bad Script', cursive;
+    font-size: 1.3em;
 }
 
 .nav a:hover{
@@ -65,11 +67,12 @@ body{
     background-size: 100%;
     color: whitesmoke;
     font-style: inherit;
+    box-shadow: 0px 0px 5px 5px olivedrab;
     
 }
 
 #desa{
-    background-image: url('/img/desa.jpg');
+    background-image: url('/img/desa.png');
     background-repeat: no-repeat;
     background-size: 100%;
     background-color:rgba(0, 0, 0, 0.5);
@@ -79,7 +82,7 @@ body{
 }
 
 #comida{
-    background-image: url('/img/comi.jpg');
+    background-image: url('/img/comi.png');
     background-repeat: no-repeat;
     background-size: 100%;
     background-color:rgba(0, 0, 0, 0.5);
@@ -89,7 +92,7 @@ body{
 }
 
 #cena{
-    background-image: url('/img/cena.jpg');
+    background-image: url('/img/cena.png');
     background-repeat: no-repeat;
     background-size: 100%;
     background-color:rgba(0, 0, 0, 0.5);
@@ -104,6 +107,7 @@ body{
 
 .card {
     background-color:rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 3px 3px mediumseagreen;
 }
 
 p{
