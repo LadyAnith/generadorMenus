@@ -64,6 +64,8 @@ color: white;
     background-image: url('/img/alta.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
+    background-attachment: fixed;
+    background-size: cover;
     background-color:rgba(0, 0, 0, 0.5);
 
 }

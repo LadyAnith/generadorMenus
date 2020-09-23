@@ -1,10 +1,11 @@
 .user_info {
     width: 100%;
-    background: grey; /*cambiar*/
+    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: o;
     padding: 5px 10px 5px;
     text-align: right;
+    color: whitesmoke;
 }
 
 label.alergenos input{
@@ -23,12 +24,88 @@ label.alergenos input:checked +img{
     box-shadow: 0px 0px 5px 5px grey;
 }
 
+/*ESTILOS BASE*/
+
+.jumbotron{
+    background-image: url('/img/captura2.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+body{
+    background-image: url('/img/fondo2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.nav{
+    background-color:rgba(131, 191, 61, 0.5);
+    margin-bottom: 2%;
+
+}
+
+.nav a{
+    color: #734222;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    color: gold;
+    background-color:rgba(17, 86, 104, 0.637);
+}
+
+
 /*ESTILOS NUEVO MENU*/
 #jumboMenu{
     background-image: url('/img/nuevoMenu.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
-    color:white;
+    color: whitesmoke;
     font-style: inherit;
-    box-shadow: 0px 0px 5px 5px grey;
+    
+}
+
+#desa{
+    background-image: url('/img/desa.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+   
+    
+    
+}
+
+#comida{
+    background-image: url('/img/comi.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    
+    
+    
+}
+
+#cena{
+    background-image: url('/img/cena.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    
+    
+}
+
+.card-header{
+    background-color:rgba(0, 0, 0, 0.5);
+    color: #FFC312;
+}
+
+.card {
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+p{
+    color: white;
 }
