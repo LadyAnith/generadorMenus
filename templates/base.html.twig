@@ -10,6 +10,7 @@
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 			<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Marck+Script&family=Merienda&family=Secular+One&family=Spectral:wght@300&family=Tangerine:wght@700&display=swap" rel="stylesheet">
 			<link href="/css/nice-select.css" rel="stylesheet">
 			<link href="/css/estilos.css" rel="stylesheet">
 		{% endblock %}
@@ -81,7 +82,7 @@ $('.nice-select').niceSelect();
 			{% for message in app.flashes('info') %}
 				<div class="modal" tabindex="-1" id="mensajeUpdate">
 					<div class="modal-dialog">
-						<div class="modal-content">
+						<div class="modal-content" id="info">
 							<div class="modal-header">
 								<h5 class="modal-title">Información</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -92,7 +93,7 @@ $('.nice-select').niceSelect();
 								<p>{{message}}.</p>
 							</div>
 							<div class="modal-footer">
-								<button type="reset" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+								<button type="reset" class="btn btn-outline-success" data-dismiss="modal">Aceptar</button>
 							</div>
 						</div>
 					</div>
