@@ -34,8 +34,8 @@
                         <td>{{ plato.calorias|replace({'.':','})}}</td>
                         <td>{{ plato.tipo.nombre}}</td>
                         <td>
-                            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#editarPlato"><a href="{{ path('editarPlato', {id: plato.id}) }}"><i class="fas fa-edit"></i></a></button>
-                            <button type="button" class="btn btn-outline-danger"><a href="/bajaPlato/{{plato.id}}"><i class="fas fa-trash-alt"></i></a></button>
+                            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#editarPlato" onclick="location.href='{{ path('editarPlato', {id: plato.id}) }}';"><i class="fas fa-edit"></i></a></button>
+                            <button type="button" class="btn btn-outline-danger" onclick="location.href='{{ path('bajaPlato', {id: plato.id}) }}';"><i class="fas fa-trash-alt"></i></a></button>
                         </td>
                     </tr>
                     {% endfor %}

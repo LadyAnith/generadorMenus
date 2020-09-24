@@ -31,8 +31,8 @@
                         <td>{{ usuario.nombre}}</td>
                         <td>{{ usuario.contrasenia}}</td>
                         <td>
-                            <button type="button" class="btn btn-outline-success"><a href="{{ path('editarUsuario', {id: usuario.id}) }}"><i class="fas fa-edit"></i></a></button>
-                            <button type="button" class="btn btn-outline-danger"><a href="{{ path('bajaUsuario', {id: usuario.id}) }}"><i class="fas fa-trash-alt"></i></a></button>
+                            <button type="button" class="btn btn-outline-success" onclick="location.href='{{path('editarUsuario', {id: usuario.id}) }}';"><i class="fas fa-edit"></i></a></button>
+                            <button type="button" class="btn btn-outline-danger" onclick="location.href='{{ path('bajaUsuario', {id: usuario.id}) }}';"><i class="fas fa-trash-alt"></i></a></button>
                         </td>
                     </tr>
                   {% endfor %}
