@@ -67,7 +67,7 @@ $('.nice-select').niceSelect();
                             <div>
                                 ¡Hola
                                 <strong>{{ app.user.username }}</strong>!
-                                <button class="btn btn-danger" onclick="location.href='{{ path('app_logout') }}';">
+                                <button class="btn btn-outline-danger" onclick="location.href='{{ path('app_logout') }}';">
                                     Desconectar <i class="fas fa-power-off"></i>
                                 </button>
                             </div>
@@ -83,7 +83,7 @@ $('.nice-select').niceSelect();
 				<div class="modal" tabindex="-1" id="mensajeUpdate">
 					<div class="modal-dialog">
 						<div class="modal-content" id="info">
-							<div class="modal-header">
+							<div class="modal-header" id="infoHead">
 								<h5 class="modal-title">Información</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -92,7 +92,7 @@ $('.nice-select').niceSelect();
 							<div class="modal-body">
 								<p>{{message}}.</p>
 							</div>
-							<div class="modal-footer">
+							<div class="modal-footer" id="infoPie">
 								<button type="reset" class="btn btn-outline-success" data-dismiss="modal">Aceptar</button>
 							</div>
 						</div>
