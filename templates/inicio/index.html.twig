@@ -4,19 +4,131 @@
 
 {% block menu_inicio %}active{% endblock %}
 
+{% block jumbo %}{% endblock %}
+
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid" id="jumboManual">
+			<div class="container text-center">
+				<h1 class="display-4">Manual de Usuario</h1>
+			</div>
+		</div>
+        <div>
+            <h2>Introducción</h2>
+            <p>Este manual le permitirá aprender a utilizar todas las funcionalidades básicas del Gestor de Menús. </p>
+        </div>
+      <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          ¿Cómo acceder al Gestor de Menús?
+        </button>
+      </h2>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+      Acceda a http://localhost:8000/login, introduzca su usuario y contraseña si ya ha creado su cuenta.
+      Para crear su propia cuenta, pulse en el botón "Regístrate".
+      <br/>
+      <img src="/img/login.png"/> 
+      Una vez pulsado el botón de "Regístrate" aparecerá una nueva ventana en la que introduciremos un nombre de usuario y nuestra contraseña, pulsaremos el botón de registrar y así podremos darnos de alta en el programa:
+        <br/>
+      <img src="/img/alta Usu.png"/> 
+       <br/>
+      Una vez registrados como nuevo usuario, nos saldrá una ventana de aviso donde nos avisará de que hemos sido dados de alta correctamente redireccionándonos a la ventana de inicio de sesión para que en ella introduzcamos los datos y podamos acceder a la aplicación. 
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/generadorMenus/src/Controller/InicioController.php'|file_link(0) }}">src/Controller/InicioController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/generadorMenus/templates/inicio/index.html.twig'|file_link(0) }}">templates/inicio/index.html.twig</a></code></li>
-    </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Apartados de la barra de Menú
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+       En la barra de menú, nos encontramos con las distintas opciones que posee la aplicación.
+       Para elegir la opción que queramos tan solo hay que clickar en el nombre de cada una de ellas.
+       <ol>
+            <ul>Usuarios: En esta pestaña de la barra de menú tendremos acceso al listado de usuarios, donde podremos dar altas, editar y modificar.</ul>
+            <ul>Platos: Esta opción sirve para acceder al listado de platos para el menú. También podremos dar de alta nuevos platos, editar y eliminar.</ul>
+            <ul>Nuevo Menú: Será la sección en la que podemos crear el menú del día para el Hogar del pensionista eligiendo los diferentes platos del menú.</ul>
+            <ul>Desconectar: Es importante que una vez que hayamos terminado de hacer las gestiones necesarias, finalicemos la sesión para una mayor seguridad.</ul>
+       </ol>
+       <img src="/img/barra.png"/> 
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          ¿Cómo gestionar el listado de Usuarios?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Dentro de la ventana de usuarios, podremos realizar determinadas operaciones:
+        <ol>
+            <ul>Dar de alta a nuevos Usuarios: En la aplicación, disponemos de un alta de nuevos usuarios por si en algún momento fuera necesaria esta operación. Para ello, lo primero que haremos es clickar en el botón "Nuevo Usuario", nos aparecerá una ventana emergente para dar de alta al igual que en el inicio de sesión.
+            En el caso de que queramos cancelar el alta nuevo clickaríamos en el botón de cancelar.
+            <img src="/img/altaUsu2.png"/> </ul>
+            <ul>Editar Usuarios: En el caso de que queramos editar a uno de los usuarios, debemos de situarnos en el usuario que vamos a modificar, clickar en el botón de color verde con forma de lapicero escribiendo. Saldrá una ventana emergente con el nombre de usuario en el formulario con la opción de modificarlo si lo deseamos. Respecto a la contraseña, el programa nos va a obligar a escribirla de nuevo o modificarla dependiendo de nuestros intereses. 
+            En el caso de que queramos cancelar la nueva edición clickaríamos en el botón de cancelar.
+            <img src="/img/ediUsu.png"/> </ul>
+            <ul>Por último tenemos la opción de dar de baja a un usuario. Nos situamos en el listado en el usuario que deseemos eliminar. Clickamos en e botón de color rojo con el dibujo de una papelera, y nos saldrá una ventana emergente preguntándonos si realmente queremos eliminar a ese usuario, por último aceptamos. En el caso de que haya un error o no queramos eliminar a ese usuario, tenemos el botón de cancelar.
+            <img src="/img/bajaUsu.png"/></ul>
+        </ol> 
+      </div>
+    </div>
+  </div>
 </div>
+<div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          ¿Cómo gestionar el listado de platos?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFlour" data-parent="#accordionExample">
+      <div class="card-body">
+      Dentro de la pestaña de Platos, podremos realizar determinadas operaciones:
+      <ol>
+        <ul>Alta nuevo Plato: En primer lugar para poder gestionar nuestros platos, el usuario debe de dar de alta los diferentes platos para que podamos seleccionarlos en el menú. Para ello pulsaremos en el botón de color azul "Nuevo Plato". Una vez pulsado, aparecerá una ventana emergente con el formulario de alta de platos. Introduciremos el Nombre del plato, las calorías, seleccionaremos del desplegable el tipo de plato que es, y clickaremos en la simágenes de los alérgenos que contenga dicho plato.
+        En el caso de que queramos cancelar el alta nuevo clickaríamos en el botón de cancelar.
+        <img src="/img/altaPlato.png"/></ul>
+
+        <ul>Editar Platos: En el caso de que queramos editar un plato, debemos de situarnos en el plato que vamos a modificar, clickar en el botón de color verde con forma de lapicero escribiendo. Saldrá una ventana emergente con los datos del formulario rellenos conlos datos que tenemos guardado en la base de datos. Modificaremos los campos que deseemos. En cuanto a los alérgenos, si queremos deseleccionar uno de estos, tan solo clickaremos encima de la imágen y se deseleccionará. Una vez realizados los cambios, damos en el botón de Aceptar.
+        En el caso de que queramos cancelar la edición clickaríamos en el botón de cancelar.
+        <img src="/img/editarPlato.png"/></ul>
+        <ul>Baja de Platos</ul>
+      </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
 {% endblock %}
