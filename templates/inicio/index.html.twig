@@ -16,7 +16,7 @@
 
         <div>
             <h2>Introducción</h2>
-            <p>Este manual le permitirá aprender a utilizar todas las funcionalidades básicas del Gestor de Menús. </p>
+            <p id="intro">Este manual le permitirá aprender a utilizar todas las funcionalidades básicas del Gestor de Menús. </p>
         </div>
 
     <div class="accordion" id="accordionExample">
@@ -35,8 +35,9 @@
                 Para crear su propia cuenta, pulse en el botón "Regístrate".
                 <br/>
                 <img src="/img/login.png"/> 
+                <br/>
                 Una vez pulsado el botón de "Regístrate" aparecerá una nueva ventana en la que introduciremos un nombre de usuario y nuestra contraseña, pulsaremos el botón de registrar y así podremos darnos de alta en el programa:
-                    <br/>
+                <br/>
                 <img src="/img/alta Usu.png"/> 
                 <br/>
                 Una vez registrados como nuevo usuario, nos saldrá una ventana de aviso donde nos avisará de que hemos sido dados de alta correctamente redireccionándonos a la ventana de inicio de sesión para que en ella introduzcamos los datos y podamos acceder a la aplicación. 
@@ -82,11 +83,14 @@
                     <ol>
                         <ul>Dar de alta a nuevos Usuarios: En la aplicación, disponemos de un alta de nuevos usuarios por si en algún momento fuera necesaria esta operación. Para ello, lo primero que haremos es clickar en el botón "Nuevo Usuario", nos aparecerá una ventana emergente para dar de alta al igual que en el inicio de sesión.
                         En el caso de que queramos cancelar el alta nuevo clickaríamos en el botón de cancelar.
+                        <br/>
                         <img src="/img/altaUsu2.png"/> </ul>
                         <ul>Editar Usuarios: En el caso de que queramos editar a uno de los usuarios, debemos de situarnos en el usuario que vamos a modificar, clickar en el botón de color verde con forma de lapicero escribiendo. Saldrá una ventana emergente con el nombre de usuario en el formulario con la opción de modificarlo si lo deseamos. Respecto a la contraseña, el programa nos va a obligar a escribirla de nuevo o modificarla dependiendo de nuestros intereses. 
                         En el caso de que queramos cancelar la nueva edición clickaríamos en el botón de cancelar.
+                        <br/>
                         <img src="/img/ediUsu.png"/> </ul>
-                        <ul>Por último tenemos la opción de dar de baja a un usuario. Nos situamos en el listado en el usuario que deseemos eliminar. Clickamos en e botón de color rojo con el dibujo de una papelera, y nos saldrá una ventana emergente preguntándonos si realmente queremos eliminar a ese usuario, por último aceptamos. En el caso de que haya un error o no queramos eliminar a ese usuario, tenemos el botón de cancelar.
+                        <ul>Por último tenemos la opción de dar de baja a un usuario. Nos situamos en el listado en el usuario que deseemos eliminar. Clickamos en e botón de color rojo con el dibujo de una papelera, y nos saldrá una ventana emergente preguntándonos si realmente queremos eliminar a ese usuario, por último aceptamos. En el caso de que haya un error o no queramos eliminar a ese usuario, tenemos el botón de cancelar.ç
+                        <br/>
                         <img src="/img/bajaUsu.png"/></ul>
                     </ol> 
                 </div>
@@ -107,10 +111,12 @@
                 <ol>
                     <ul>Alta nuevo Plato: En primer lugar para poder gestionar nuestros platos, el usuario debe de dar de alta los diferentes platos para que podamos seleccionarlos en el menú. Para ello pulsaremos en el botón de color azul "Nuevo Plato". Una vez pulsado, aparecerá una ventana emergente con el formulario de alta de platos. Introduciremos el Nombre del plato, las calorías, seleccionaremos del desplegable el tipo de plato que es, y clickaremos en la simágenes de los alérgenos que contenga dicho plato.
                     En el caso de que queramos cancelar el alta nuevo clickaríamos en el botón de cancelar.
+                    <br/>
                     <img src="/img/altaPlato.png"/></ul>
 
                     <ul>Editar Platos: En el caso de que queramos editar un plato, debemos de situarnos en el plato que vamos a modificar, clickar en el botón de color verde con forma de lapicero escribiendo. Saldrá una ventana emergente con los datos del formulario rellenos conlos datos que tenemos guardado en la base de datos. Modificaremos los campos que deseemos. En cuanto a los alérgenos, si queremos deseleccionar uno de estos, tan solo clickaremos encima de la imágen y se deseleccionará. Una vez realizados los cambios, damos en el botón de Aceptar.
                     En el caso de que queramos cancelar la edición clickaríamos en el botón de cancelar.
+                    <br/>
                     <img src="/img/editarPlato.png"/></ul>
                     <ul>Baja de Platos</ul>
                 </ol>
@@ -128,7 +134,24 @@
             </div>
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                   En la barra de menú, encontramos la pestaña "Nuevo Menú". Una vez de dentro, encontraremos 3 ventanas, con los diferentes tipos de comidas del día:
+                   <ol>
+                        <ul>Desayuno</ul>
+                        <ul>Comida</ul>
+                        <ul>Cena</ul>
+                   </ol>
+                   Cada una de estas ventanas tiene un menú desplegable con las distintas opciones que tenemos para elegir el menú. Elegiremos la opción que prefiramos para crear la carta.
+                   Cabe destacar que en comida y cena podemos elegir también el postre.
+                   Para que nos muestre el pdf con el menú del día, clickaremos en el botón de "Generar Menú".
+                   <br/>
+                    <img src="/img/pdf.png"/>
+                    <br/>
+                    Una vez clickado el botón, nos generará automáticamente el pdf con los paltos que hemos seleccionado para el menú, con sus calorías y alérgenos de cada plato.
+                    <br/>
+                    <img src="/img/carta.png"/>
+                    <br/>
+                    *Nota informativa: Debajo de la carta del menú, hay una leyenda con el significado de cada uno de los alérgenos.
+
                 </div>
             </div>
         </div>
