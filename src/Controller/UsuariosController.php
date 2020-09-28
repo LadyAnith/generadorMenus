@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
+
 class UsuariosController extends AbstractController
 {
     /**
@@ -135,6 +136,7 @@ class UsuariosController extends AbstractController
             
             $encoded = $encoder->encodePassword($usuario, $pass);
             $usuarioRepo->setContrasenia($encoded);
+            $entityManager->persist($usuarioRepo);
             
             
         $entityManager->flush();
