@@ -114,7 +114,7 @@ class UsuariosController extends AbstractController
     /**
      * @Route("/editarUsuario/{id}", name="editarUsuario2", methods={"POST"})
      */
-    public function editarUsuario2(Request $request, $id):Response
+    public function editarUsuario2(Request $request, UserPasswordEncoderInterface $encoder, $id):Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $usuarioRepo = $entityManager->getRepository(Usuario::class)->find($id);
@@ -128,6 +128,14 @@ class UsuariosController extends AbstractController
         
         $usuarioRepo->setNombre($request->request->get('nombre'))
             ->setContrasenia(md5($request->request->get('contrasenia')));
+
+            $pass = $usuarioRepo->getContrasenia();
+
+            $usuario= $usuarioRepo->getNombre();
+            
+            $encoded = $encoder->encodePassword($usuario, $pass);
+            $usuarioRepo->setContrasenia($encoded);
+            
             
         $entityManager->flush();
 
