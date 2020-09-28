@@ -160,7 +160,7 @@ table {
 /* ESTILOS MANUAL DE USUARIO*/
 
 .accordion .collapse{
-    background-color:rgba(255, 255, 255, 0.4);
+    background-color:rgba(255, 255, 255, 0.753);
     font-family: 'Merienda', cursive;
 }
 
@@ -186,6 +186,7 @@ table {
 }
 
 .card-body img{
-    display:block;
+    box-shadow: 0px 2px 6px 3px rgb(0, 0, 0.5);
+    border-radius: 5%;
     
 }
