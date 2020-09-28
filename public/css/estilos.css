@@ -160,14 +160,32 @@ table {
 /* ESTILOS MANUAL DE USUARIO*/
 
 .accordion .collapse{
-    background-color:rgba(255, 255, 255, 0.5);
+    background-color:rgba(255, 255, 255, 0.4);
     font-family: 'Merienda', cursive;
+}
+
+.accordion .card-header{
+    background-color:rgba(152, 255, 89, 0.4);
+    font-family: 'Merienda', cursive;
+    text-decoration: none;
+    color:#734222;
+}
+
+.accordion .card-header h2 button{
+    text-decoration: none;
+    color:#734222;
+}
+
+.accordion .card-header h2 button:hover{
+    color:#FFC312;
+    background-color:rgba(17, 86, 104, 0.637);
 }
 
 #intro{
     color: black;
 }
 
-.car-body img{
-    border-radius: 50%;
+.card-body img{
+    display:block;
+    
 }
