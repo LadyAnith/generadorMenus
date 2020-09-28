@@ -59,14 +59,14 @@
                             <form action="{{ path('altaPlato') }}" method="post">
                                 <div class="form-group">
                                     <label for="nombre">Nombre:</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
 
                                 <div class="form-group row">
                                 <div class=" col-sm-6">
                                     <div class="form-group">
                                         <label for="calorias">Calorías:</label>
-                                        <input type="number" class="form-control" id="calorias" name="calorias" step="0.01">
+                                        <input type="number" class="form-control" id="calorias" name="calorias" step="0.01" required>
                                     </div>   
                                 </div>                               
                                     
@@ -123,14 +123,14 @@
                             <form action="{{ path('editarPlato', {id: plato.id}) }}" method="post">
                                 <div class="form-group">
                                     <label for="nombre">Nombre:</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{plato.nombre}}">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{plato.nombre}}" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <div class=" col-sm-6">   
                                             <div class="form-group">
                                                 <label for="calorias">Calorías:</label>
-                                                <input type="number" class="form-control" id="calorias" name="calorias" step="0.01" value="{{plato.calorias}}">
+                                                <input type="number" class="form-control" id="calorias" name="calorias" step="0.01" value="{{plato.calorias}}" required>
                                             </div>
                                     </div>
                                
