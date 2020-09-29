@@ -128,7 +128,7 @@ class UsuariosController extends AbstractController
         
         
         $usuarioRepo->setNombre($request->request->get('nombre'))
-            ->setContrasenia(md5($request->request->get('contrasenia')));
+            ->setContrasenia($request->request->get('contrasenia'));
 
             $pass = $usuarioRepo->getContrasenia();
             
