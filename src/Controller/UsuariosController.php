@@ -118,23 +118,23 @@ class UsuariosController extends AbstractController
     public function editarUsuario2(Request $request, UserPasswordEncoderInterface $encoder, $id):Response
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $usuario = $entityManager->getRepository(Usuario::class)->find($id);
+        $usuarioRepo = $entityManager->getRepository(Usuario::class);
+        $usuario = $usuarioRepo->find($id);
 
         if (!$usuario) {
             throw $this->createNotFoundException( 
                 'No existe un usuario con id: '.$id
             );
         }
+        //Codificar la contraseña con la funcion encodedPassword de symfony para que no se queje el login de que no coincide la codificacion
+        $pass = $request->request->get('contrasenia');
+        $encodedPass = $encoder->encodePassword($usuario, $pass);
         
-        
+        //Preparo el usuario para modificar sus valores
         $usuario->setNombre($request->request->get('nombre'))
-            ->setContrasenia($request->request->get('contrasenia'));
+            ->setContrasenia($encodedPass);
 
-            $pass = $usuario->getContrasenia();
-            
-            $encoded = $encoder->encodePassword($usuario, $pass);
-            $usuario->setContrasenia($encoded);
-            $entityManager->persist($usuario);     
+        $entityManager->persist($usuario);     
         $entityManager->flush();
 
         $this->addFlash('info','Usuario modificado correctamente!');

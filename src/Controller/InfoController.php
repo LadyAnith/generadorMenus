@@ -6,16 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-class InicioController extends AbstractController
+class InfoController extends AbstractController
 {
     /**
-     * @IsGranted("ROLE_USER")
-     * @Route({"/","/inicio"}, name="inicio")
+     * @Route("/info", name="info")
      */
     public function index()
     {
-        return $this->render('inicio/index.html.twig', [
-            'controller_name' => 'InicioController',
+        return $this->render('info/index.html.twig', [
+           
         ]);
     }
 }
