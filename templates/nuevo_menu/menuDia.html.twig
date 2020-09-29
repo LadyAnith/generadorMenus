@@ -91,6 +91,7 @@
             <p><strong>{{postreCena.nombre}}.</strong> &nbsp;&nbsp; <i>{{postreCena.calorias}} kcal</i></p>
             {% include 'nuevo_menu/alergenos.html.twig' with {'alergenos': postreCena.listaAlergenos} %}
             </div> 
+            <i>El menú contiene un total de: {{totalCalorias}} kcal</i>
 
             <img src="/img/decoradorBottom.png"/>
     </div>

@@ -77,6 +77,14 @@ class NuevoMenuController extends AbstractController
         $cena = $platoRepo->find($cen);
         $postreCena = $platoRepo->find($pCen);
 
+        $caloriasDes = floatval($desayuno->getCalorias());
+        $caloriasCom = floatval($comida->getCalorias());
+        $caloriasPosCom = floatval($postreComida->getCalorias());
+        $caloriasCen = floatval($cena->getCalorias());
+        $caloriasPosCen = floatval($postreCena->getCalorias());
+
+        $totalCalorias = $caloriasDes + $caloriasCom + $caloriasPosCom + $caloriasCen + $caloriasPosCen;
+
         //Aqui iria lo del generador de PDF que tengo en trello
         $pdf = $this->render('nuevo_menu/menuDia.html.twig', [
             'desayuno'=>$desayuno,
@@ -84,6 +92,7 @@ class NuevoMenuController extends AbstractController
             'postreComida'=>$postreComida,
             'cena'=>$cena,
             'postreCena'=>$postreCena,
+            'totalCalorias'=> $totalCalorias,
            
         ]);
 
