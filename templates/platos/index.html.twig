@@ -136,7 +136,7 @@
                                
                                      <div class=" col-sm-6">  
                                         <label for="calorias">Tipo plato:</label><br/>
-                                        <select class="nice-select" name="tipoPlatos" >
+                                        <select class="nice-select" name="tipoPlatos">
                                         {% for tipoPlato in tipoPlatos %} 
                                         <!--EL ID va en el value-->
                                             <option value="{{ tipoPlato.id}}" {% if tipoPlato.id == plato.tipo.id %}selected  {% endif %}>{{ tipoPlato.nombre}}</option>
