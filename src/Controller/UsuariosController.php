@@ -118,23 +118,23 @@ class UsuariosController extends AbstractController
     public function editarUsuario2(Request $request, UserPasswordEncoderInterface $encoder, $id):Response
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $usuarioRepo = $entityManager->getRepository(Usuario::class)->find($id);
+        $usuario = $entityManager->getRepository(Usuario::class)->find($id);
 
-        if (!$usuarioRepo) {
+        if (!$usuario) {
             throw $this->createNotFoundException( 
                 'No existe un usuario con id: '.$id
             );
         }
         
         
-        $usuarioRepo->setNombre($request->request->get('nombre'))
+        $usuario->setNombre($request->request->get('nombre'))
             ->setContrasenia($request->request->get('contrasenia'));
 
-            $pass = $usuarioRepo->getContrasenia();
+            $pass = $usuario->getContrasenia();
             
-            $encoded = $encoder->encodePassword($usuarioRepo, $pass);
-            $usuarioRepo->setContrasenia($encoded);
-            $entityManager->persist($usuarioRepo);     
+            $encoded = $encoder->encodePassword($usuario, $pass);
+            $usuario->setContrasenia($encoded);
+            $entityManager->persist($usuario);     
         $entityManager->flush();
 
         $this->addFlash('info','Usuario modificado correctamente!');
