@@ -131,14 +131,10 @@ class UsuariosController extends AbstractController
             ->setContrasenia(md5($request->request->get('contrasenia')));
 
             $pass = $usuarioRepo->getContrasenia();
-
-            $usuario= $usuarioRepo->getNombre();
             
-            $encoded = $encoder->encodePassword($usuario, $pass);
+            $encoded = $encoder->encodePassword($usuarioRepo, $pass);
             $usuarioRepo->setContrasenia($encoded);
-            $entityManager->persist($usuarioRepo);
-            
-            
+            $entityManager->persist($usuarioRepo);     
         $entityManager->flush();
 
         $this->addFlash('info','Usuario modificado correctamente!');
