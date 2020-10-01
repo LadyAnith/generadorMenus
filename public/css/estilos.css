@@ -199,3 +199,72 @@ h2{
     font-family: 'Merienda', cursive;
     color:#734222;
 }
+
+/*ESTILOS LOGIN*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+body#bodyLogin{
+background-image: url('/img/ancianos.png');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+#bodyLogin .container{
+height: 100%;
+align-content: center;
+}
+
+#bodyLogin .card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+box-shadow: none;
+}
+
+#bodyLogin .card-header h3{
+color: white;
+}
+
+
+#bodyLogin .input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+#bodyLogin input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+
+#bodyLogin .login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+#bodyLogin .login_btn:hover{
+color: black;
+background-color: white;
+}
+
+#bodyLogin .info-link {
+    color: #FFC312;
+    text-decoration: underline;
+}
+
+#bodyLogin .info-link:hover {
+    color: white;
+}
+
+#bodyLogin .links{
+color: white;
+}
