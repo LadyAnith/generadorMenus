@@ -29,7 +29,11 @@
                     <tr>
                         <th scope="row">{{ usuario.id}}</th>
                         <td>{{ usuario.nombre}}</td>
-                        <td>{{ usuario.contrasenia}}</td>
+                        <td>
+                            <span title="{{ usuario.contrasenia }}">
+                                {{  usuario.contrasenia|slice(0, 75) ~ ' ...' }}
+                            </span>
+                        </td>
                         <td>
                             <button type="button" class="btn btn-outline-success" onclick="location.href='{{path('editarUsuario', {id: usuario.id}) }}';"><i class="fas fa-edit"></i></button>
                             <button type="button" data-toggle="modal" data-target="#bajaUsuario" class="btn btn-outline-danger" onclick="establecerRuta('{{ path('bajaUsuario', {id: usuario.id}) }}', '{{ usuario.nombre }}')"><i class="fas fa-trash-alt"></i></button>
