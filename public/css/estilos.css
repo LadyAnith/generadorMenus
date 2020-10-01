@@ -164,6 +164,7 @@ table {
 .accordion .collapse{
     background-color:rgba(255, 255, 255, 0.753);
     font-family: 'Merienda', cursive;
+    font-size: 1.1em;
 }
 
 .accordion .card-header{
@@ -185,6 +186,7 @@ table {
 
 #intro{
     color: black;
+    font-size: 1.3em;
 }
 
 .card-body img{
